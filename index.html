@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Direct</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 40px;
+    }
+    input {
+      padding: 12px;
+      font-size: 16px;
+      width: 90%;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      width: 95%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Open WhatsApp Chat</h2>
+  <input id="num" placeholder="Enter number with country code">
+  <button onclick="openWA()">Open WhatsApp</button>
+
+  <script>
+    function openWA() {
+      let n = document.getElementById("num").value;
+      if (n === "") {
+        alert("Please enter number");
+        return;
+      }
+      window.location.href = "https://wa.me/" + n;
+    }
+  </script>
+
+</body>
+</html>
