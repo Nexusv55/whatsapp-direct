@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Direct (India)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:40px;">
+
+  <h2>Open WhatsApp Chat</h2>
+
+  <input id="num"
+         placeholder="Enter 10-digit Indian number"
+         style="padding:12px;font-size:16px;width:90%;">
+
+  <br><br>
+
+  <button onclick="openWA()"
+          style="padding:12px;font-size:16px;
+                 background:#25D366;color:white;
+                 border:none;border-radius:6px;width:95%;">
+    Open WhatsApp
+  </button>
+
+  <script>
+    function openWA() {
+      let n = document.getElementById("num").value.trim();
+
+      if (!/^[6-9]\d{9}$/.test(n)) {
+        alert("Enter valid 10-digit Indian mobile number");
+        return;
+      }
+
+      // Android Intent (bypasses WebView redirect problem)
+      location.href =
+        "intent://send?phone=91" + n +
+        "#Intent;scheme=whatsapp;package=com.whatsapp;end";
+    }
+  </script>
+
+</body>
+</html>
